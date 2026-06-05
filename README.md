@@ -1,73 +1,40 @@
-# React + TypeScript + Vite
+# ⚡ Zero-Cloud Drop
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimalist, highly secure, blazing-fast Peer-to-Peer file transfer tool. 
 
-Currently, two official plugins are available:
+**No cloud storage. No file size limits. Total privacy.**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 如何使用 (How to use)
 
-## React Compiler
+1. **打开网页**：在任意两台设备（电脑或手机）上打开本网站。
+2. **获取连接码**：设备 A 会自动在屏幕正中央生成一个 **6 位专属连接码**（如 `A8K2X1`）。
+3. **建立连接**：在设备 B 下方的输入框内，填入设备 A 的连接码，点击 **Connect**。
+4. **极速传文件**：连接成功后，两边任意拖拽或选择文件，文件将直接跨越空间飞入另一台设备！
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧠 核心原理 (How it works)
 
-## Expanding the ESLint configuration
+Zero-Cloud Drop 的底层基于 **WebRTC (Web Real-Time Communication)** 技术实现浏览器与浏览器之间的直接通信。
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **零云端 (Zero-Cloud)**：你的文件数据永远不会经过、也不会保存在任何第三方服务器上。隐私极度安全。
+* **大文件切片引擎 (Chunking)**：针对动辄数 GB 的超大文件，我们在内存中实现了 64KB 级别的手动切片防抖传输，彻底避免了浏览器 WebRTC 默认通道的内存溢出崩溃问题。
+* **无惧陌生网络 (NAT Traversal)**：内置了多重公共信令服务器和 Google STUN 穿透基站，即使在公司内网、星巴克等复杂的网络环境下也能极速握手连通。
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🎨 极致的视觉体验
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* 使用 Tailwind CSS 构建了极简的深色系毛玻璃（Glassmorphism） UI。
+* 核心动效由 **GSAP** 物理引擎驱动，包含磁性阻尼悬停、错落排版滑入以及液态 svg 进度环，带来原生 App 级别的交互质感。
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 💻 本地开发指南 (Local Development)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# 1. 安装依赖
+npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 2. 启动本地开发服务 (支持局域网访问)
+npm run dev -- --host
+
+# 3. 生产环境编译打包
+npm run build
 ```
