@@ -22,10 +22,20 @@ export function Header() {
         </span>
       </div>
       <div className="flex items-center gap-6">
-        <a href="#" className="text-sm font-medium text-white/50 hover:text-white transition-colors">
+        <a 
+          href="https://github.com/wind-chaser-github/zero-cloud-drop#readme" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-medium text-white/50 hover:text-white transition-colors"
+        >
           How it works
         </a>
-        <a href="#" className="text-sm font-medium text-white/50 hover:text-white transition-colors">
+        <a 
+          href="https://github.com/wind-chaser-github/zero-cloud-drop" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-medium text-white/50 hover:text-white transition-colors"
+        >
           GitHub
         </a>
       </div>
